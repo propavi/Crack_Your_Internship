@@ -1,0 +1,21 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        '''nums.sort()
+        mid = len(nums)//2
+        return nums[mid]'''
+
+        h = {}
+        for i,n in enumerate(nums):
+            if n not in h:
+                h[n] =  1
+            else:
+                h[n] += 1
+        max_f = 0
+        max_element = None
+        for i in h:
+            if h[i] > max_f:
+                max_f = h[i]
+                max_element = i
+        return max_element
+        
+            
