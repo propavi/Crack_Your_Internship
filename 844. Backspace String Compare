@@ -1,0 +1,32 @@
+class Solution:
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        res = ""
+        res2 = ""
+        hash_count = 0
+        hash_count2 = 0
+        for j in range(len(s)-1,-1,-1):
+            i = s[j]
+            if i == "#":
+                hash_count += 1
+            elif i != '#' and hash_count == 0:
+                res = i + res
+            elif i != "#" and hash_count != 0:
+                hash_count -= 1
+                continue
+        for j in range(len(t)-1,-1,-1):
+            i = t[j]
+            if i == "#":
+                hash_count2 += 1
+            elif i != '#' and hash_count2 == 0:
+                res2 = i + res2
+            elif i != "#" and hash_count2 != 0:
+                hash_count2 -= 1
+                continue
+        
+        if res == res2:
+            return True
+        else:
+            return False
+            
+
+
