@@ -1,0 +1,9 @@
+a = [22,1,45,67,12]
+for i in range(len(a) - 1):
+    min_value = i
+    for j in range(i+1,len(a)):
+        if a[min_value] > a[j]:
+            min_value = j
+    a[i],a[min_value] = a[min_value],a[i]
+print(a)
+            
