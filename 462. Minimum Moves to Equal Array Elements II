@@ -1,0 +1,12 @@
+class Solution:
+    def minMoves2(self, nums: List[int]) -> int:
+        nums.sort()
+        mid = len(nums)//2
+        e = nums[mid]
+        moves = 0
+        for i in nums:
+            if i > e:
+                moves += (i-e)
+            if i < e:
+                moves += (e - i)
+        return moves
