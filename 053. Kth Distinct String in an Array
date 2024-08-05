@@ -1,0 +1,16 @@
+class Solution:
+    def kthDistinct(self, arr: List[str], k: int) -> str:
+        '''no_duplicates = []
+        for i in arr:
+            if arr.count(i) == 1:
+                no_duplicates.append(i)
+        if len(no_duplicates) >= k:
+            return no_duplicates[k-1]
+        return ""'''
+        c = Counter(arr)
+        for i in arr:
+            if c[i] == 1:
+                k -= 1
+                if k == 0:
+                    return i
+        return ''
