@@ -1,0 +1,18 @@
+class Solution:
+    def toGoatLatin(self, sentence: str) -> str:
+        l = sentence.split(" ")
+        s = []
+        for i in range(len(l)):
+            if len(l[i]) >= 1:
+                x = l[i][:1]
+            if x in {'a','e','i','o','u','A','I','E','O','U'}:
+                l[i] += "ma" 
+                l[i] += ((i+1) * "a")
+                s.append(l[i])
+            else:
+                p = l[i][:1]
+                l[i] = l[i][1:] + p
+                l[i] += "ma"
+                l[i] += ((i+1) * "a")
+                s.append(l[i])
+        return " ".join(s)
