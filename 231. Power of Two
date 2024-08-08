@@ -1,0 +1,25 @@
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        c = 0
+        if n < 0:
+            temp = - 1 * n
+        else:
+            temp = n
+        while temp != 0:
+            c += 1
+            temp = temp // 2
+        
+        if n < 0:
+            if 2 **(-1 * (c-1)) == n:
+                return True
+            else:
+                return False
+        else:
+            if 2 ** (c-1) == n:
+                return True
+            else:
+                return False
+        
+        
+            
+        
