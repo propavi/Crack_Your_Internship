@@ -1,0 +1,10 @@
+class Solution:
+    def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        d = {}
+        for i in range(len(heights)):
+            d[heights[i]] = names[i]
+        s = dict(sorted(d.items(), key=lambda item: item[0], reverse=True))
+        l = []
+        for i in s:
+            l.append(s[i])
+        return l        
