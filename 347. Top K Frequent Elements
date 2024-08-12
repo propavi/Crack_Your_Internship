@@ -1,0 +1,17 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        d  = {}
+        for i in nums:
+            d[i] = 1 + d.get(i,0)
+        f = [[] for i in range(len(nums) + 1)]
+        for key,value in d.items():
+            f[value].append(key)
+        res = []
+        for i in range(len(f)-1,0,-1):
+            for j in f[i]:
+                res.append(j)
+                if len(res) == k:
+                    return res
+        return res
+            
+        
